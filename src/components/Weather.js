@@ -4,40 +4,16 @@ import React , { useState} from "react";
 function Weather() {
     var query;
 
-      setInterval(updateTimee, 1000);
-    
-      const now = new Date().toLocaleTimeString();
-      const [timee, setTimee] = useState(now);
-      function updateTimee() {
-        const newTimee = new Date().toLocaleTimeString();
-        setTimee(newTimee);
-      }
-
-    // let handleLatiCallback = (latiData)=> {
-    //     setLati(latiData)
-    // }
-    // let handleLongiCallback = (longiData) => {
-    //     setLongi(longiData)
-    // }
-    // const [error, setError] = useState(null);
-    // const [query, setQuery] = useState('');
+    setInterval(updateTimee, 1000);
+  
+    const now = new Date().toLocaleTimeString();
+    const [timee, setTimee] = useState(now);
+    function updateTimee() {
+      const newTimee = new Date().toLocaleTimeString();
+      setTimee(newTimee);
+    }
 
     const [weather, setWeather] = useState({});
-
-    // const search = evt => {
-    //   // handleOnChange()
-    //   // document.querySelector('.search-bar').addEventListener('change', handleOnChange)
-    //   if (evt.key === "Enter"){
-    //     fetch(`${process.env.REACT_APP_API_BASE}weather?q=${query}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
-    //     .then(res => res.json())
-    //     .then(result => {
-    //       setWeather(result);
-    //       setQuery(''); // here we are again making that query to empty
-    //       console.log(result)
-    //     }
-    //     );
-    //   }
-    // }
 
     const search = evt => {
         query = document.querySelector("#search-input").value        
@@ -57,16 +33,6 @@ function Weather() {
           if (weather.name === ''){
             console.log('Not Exist.')
           } 
-          // .catch((error) => {
-          //     // APIErrorHandler(error)
-          //     console.log(error)
-          //     if (weather.cod === '404' || weather.cod === '400' ){
-          //         console.log('Not found...Error')
-          //     }
-          // })
-          // if (weather.cod === '404' ){
-          //     console.log('Not found...Error')
-          // } 
         }
     }  
     const dateCreator = (d) => {
@@ -85,9 +51,6 @@ function Weather() {
     return (      
       <div className={(typeof weather.main != 'undefined') ? ((weather.main.temp > 16 ) ? 'app warm' : 'app cold') : 'app'}>
         <main>
-            {/* <p>{lati}...{longi}</p> */}
-            {/* <Location laticallback = {handleLatiCallback} longicallback = {handleLongiCallback} /> */}
-            {/* <p>{lati}...new...{longi} </p> */}
           <div className='search-box'>
             <input 
               type='text'
