@@ -6,8 +6,8 @@ function App() {
   console.log('page loaded')
 return(
   <>
-  <Location />
-  <Weather />
+    <Location />
+    <Weather />
   </>
 )
 }
